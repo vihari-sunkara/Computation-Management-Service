@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculate and String it!</title>
+  <!-- <script type="text/javascript" src="main.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="main_new.js"></script>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  
+</head>
+<form name="sci-calc" class="sci-calc">
+ <table class="calculator" cellspacing="0" cellpadding="1">
+   <tr>
+     <td colspan="5"><input id="display" name="display" value="0" size="28" maxlength="25"></td>
+   </tr>
+   <tr>
+     <td><input type="button" class="btnTop" name="btnTop" value="C" onclick="this.form.display.value=  0 "></td>
+     <td><input type="button" class="btnTop" name="btnTop" value="<--" onclick="deleteChar(this.form.display)"></td>
+     <td><input type="button" class="btnTop" name="btnTop" value="=" id="compute"></td>
+     <td><input type="button" class="btnOpps" name="btnOpps" value="&#960;" onclick="addChar(this.form.display,'3.14159265359')"></td>
+     <td><input type="button" class="btnMath" name="btnMath" value="%" onclick=" percent(this.form.display)"></td>
+   </tr>
+   <tr>
+     <td><input type="button" class="btnNum" name="btnNum" value="7" onclick="addChar(this.form.display, '7')"></td>
+     <td><input type="button" class="btnNum" name="btnNum" value="8" onclick="addChar(this.form.display, '8')"></td>
+     <td><input type="button" class="btnNum" name="btnNum" value="9" onclick="addChar(this.form.display, '9')"></td>
+     <td><input type="button" class="btnOpps" name="btnOpps" value="x&#94;" onclick="addChar(this.form.display, '^')"></td>
+     <td><input type="button" class="btnMath" name="btnMath" value="/" onclick="addChar(this.form.display, '/')"></td>
+   <tr>
+     <td><input type="button" class="btnNum" name="btnNum" value="4" onclick="addChar(this.form.display, '4')"></td>
+     <td><input type="button" class="btnNum" name="btnNum" value="5" onclick="addChar(this.form.display, '5')"></td>
+     <td><input type="button" class="btnNum" name="btnNum" value="6" onclick="addChar(this.form.display, '6')"></td>
+    <!--  <td><input type="button" class="btnOpps" name="btnOpps" value="ln" onclick="if(checkExpression(this.form.display.value)) { ln(this.form) }"></td> -->
+     <td><input type="button" class="btnOpps" name="btnOpps" value="ln" onclick="addChar(this.form.display, 'ln ')"></td>
+     <td><input type="button" class="btnMath" name="btnMath" value="*" onclick="addChar(this.form.display, '*')"></td>
+   </tr>
+   <tr>
+     <td><input type="button" class="btnNum" name="btnNum" value="1" onclick="addChar(this.form.display, '1')"></td>
+     <td><input type="button" class="btnNum" name="btnNum" value="2" onclick="addChar(this.form.display, '2')"></td>
+     <td><input type="button" class="btnNum" name="btnNum" value="3" onclick="addChar(this.form.display, '3')"></td>
+     <!-- <td><input type="button" class="btnOpps" name="btnOpps" value="&radic;" onclick="if(checkExpression(this.form.display.value)) { sqrt(this.form) }"></td> -->
+     <td><input type="button" class="btnOpps" name="btnOpps" value="&radic;" onclick="addChar(this.form.display, 'sqrt ')"></td>
+     <td><input type="button" class="btnMath" name="btnMath" value="-" onclick="addChar(this.form.display, '-')"></td>
+   </tr>
+   <tr>
+     <td><input type="button" class="btnMath" name="btnMath" value="&#177" onclick="changeSign(this.form.display)"></td>
+     <td><input type="button" class="btnNum" name="btnNum" value="0" onclick="addChar(this.form.display, '0')"></td>
+     <td><input type="button" class="btnMath" name="btnMath" value="&#46;" onclick="addChar(this.form.display, '&#46;')"></td>
+     <td><input type="button" class="btnOpps" name="btnOpps" value="x&#50;" onclick="addChar(this.form.display, '^2')"></td>
+     <td><input type="button" class="btnMath" name="btnMath" value="+" onclick="addChar(this.form.display, '+')"></td>
+   </tr>
+   <tr>
+     <td><input type="button" class="btnMath" name="btnMath" value="(" onclick="addChar(this.form.display, '(')"></td>
+     <td><input type="button" class="btnMath" name="btnMath" value=")" onclick="addChar(this.form.display,')')"></td>
+     <td><input type="button" class="btnMath" name="btnMath" value="cos" onclick="addChar(this.form.display,'cos ')"></td>
+     <td><input type="button" class="btnMath" name="btnMath" value="sin" onclick="addChar(this.form.display,'sin ')"></td>
+     <td><input type="button" class="btnMath" name="btnMath" value="tan" onclick="addChar(this.form.display,'tan ')"></td>
+  </tr>
+ </table>
+</form>
+
+
+
+
+
+
+<form name="string-calc" class="string-form">
+ <table class="stringator" cellspacing="0" cellpadding="1">
+   <tr>
+     <td colspan="5">
+      <label for="str-display1">String 1</label>
+      <input id="str-display1" name="display1" value="" size="28" maxlength="25"></td>
+   </tr>
+   <tr>
+     <td colspan="5">
+      <label for="str-display2">Concatenate</label>
+      <input id="str-display2" name="display2" value="" size="28" maxlength="25"></td>
+   </tr>
+ 
+   <tr>
+     <td><input type="button" class="btnClr" name="btnClear" value="CLEAR" onclick="this.form.display1.value='';this.form.display2.value='';"></td>
+    
+   </tr>
+   <tr>
+     <!-- <td><input type="button" class="btnStr" name="btnReverse" value="Reverse" onclick="reverseString(this.form.display1)"></td> -->
+    <td><input id="reverse" type="button" class="btnStr" name="btnReverse" value="Reverse"></td>
+   <tr>
+     <!-- <td><input type="button" class="btnStr" name="btnToUpper" value="ToUpper" onclick="toUpper(this.form.display1)"></td> -->
+     <td><input id = "toUpper" type="button" class="btnStr" name="btnToUpper" value="ToUpper"></td>
+     
+   </tr>
+
+   <tr>
+     <td><input id="toLower" type="button" class="btnStr" name="btnToLower" value="ToLower"></td>
+     
+   </tr>
+   <tr>
+     <!-- <td><input type="button" class="btnStr" name="btnLength" value="Concatenate" onclick="concatenate(this.form.display1,this.form.display2)"></td> -->
+     <td><input id="concatenate" type="button" class="btnStr" name="btnLength" value="Concatenate"></td>
+     
+   </tr>
+  
+ </table>
+</form>
+</html>     
+     
